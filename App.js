@@ -1,20 +1,12 @@
-import { StyleSheet, Text, SafeAreaView, View } from "react-native";
-import Constants from "expo-constants";
+import React from "react";
+import RestaurantScreen from "./src/features/restaurants/screens/RestaurantScreen";
+import { StatusBar } from "expo-status-bar";
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <Text style={{ padding: 20, backgroundColor: "red" }}>Open</Text>
-      <View style={{ padding: 20, backgroundColor: "blue", flex: 1 }}>
-        <Text>BOdy</Text>
-      </View>
-    </SafeAreaView>
+    <>
+      <RestaurantScreen />
+      <StatusBar style="auto" />
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: Constants.statusBarHeight,
-  },
-});
