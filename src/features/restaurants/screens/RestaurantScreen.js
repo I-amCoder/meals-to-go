@@ -5,29 +5,28 @@ import styled from "styled-components";
 import RestaurantInfoCard from "../components/RestaurantInfoCard";
 
 // Styled Components
-const Container = styled.SafeAreaView`
+const SafeArea = styled.SafeAreaView`
   flex: 1;
   ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`}
 `;
-const Search = styled(View)`
-  padding: 10px;
+const SearchContainer = styled(View)`
+  padding: ${(props) => props.theme.space[3]};
 `;
-const List = styled(View)`
+const ListContainer = styled(View)`
   flex: 1;
-  padding: 10px;
-  background-color: ${(props) => props.theme.colors.ui.error};
+  padding: ${(props) => props.theme.space[3]};
 `;
 // End STyled COmponents
 const RestaurantScreen = () => {
   return (
-    <Container>
-      <Search>
+    <SafeArea>
+      <SearchContainer>
         <Searchbar />
-      </Search>
-      <List>
+      </SearchContainer>
+      <ListContainer>
         <RestaurantInfoCard />
-      </List>
-    </Container>
+      </ListContainer>
+    </SafeArea>
   );
 };
 
