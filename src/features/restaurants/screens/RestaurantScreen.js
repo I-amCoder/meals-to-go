@@ -1,22 +1,27 @@
 import React from "react";
-import { View, StatusBar } from "react-native";
 import { Searchbar } from "react-native-paper";
-import styled from "styled-components";
-import RestaurantInfoCard from "../components/RestaurantInfoCard";
+import Spacer from "../../../components/Spacer";
 
-// Styled Components
-const SafeArea = styled.SafeAreaView`
-  flex: 1;
-  ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`}
-`;
-const SearchContainer = styled(View)`
-  padding: ${(props) => props.theme.space[3]};
-`;
-const ListContainer = styled(View)`
-  flex: 1;
-  padding: ${(props) => props.theme.space[3]};
-`;
-// End STyled COmponents
+import RestaurantInfoCard from "../components/RestaurantInfoCard";
+import {
+  ListContainer,
+  RestaurantList,
+  SafeArea,
+  SearchContainer,
+} from "./RestaurantScreen.style";
+const DATA = [
+  { name: "helo" },
+  { name: "helo1" },
+  { name: "helo2" },
+  { name: "helo3" },
+  { name: "helo4" },
+  { name: "helo56" },
+  { name: "helo6" },
+  { name: "helo7" },
+  { name: "helo8" },
+  { name: "helo7" },
+];
+
 const RestaurantScreen = () => {
   return (
     <SafeArea>
@@ -24,7 +29,15 @@ const RestaurantScreen = () => {
         <Searchbar />
       </SearchContainer>
       <ListContainer>
-        <RestaurantInfoCard />
+        <RestaurantList
+          data={DATA}
+          renderItem={() => (
+            <Spacer position={"bottom"} size="large">
+              <RestaurantInfoCard />
+            </Spacer>
+          )}
+          keyExtractor={(item, index) => index}
+        />
       </ListContainer>
     </SafeArea>
   );
