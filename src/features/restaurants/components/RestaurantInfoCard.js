@@ -51,7 +51,7 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
             </Spacer>
           </LeftSection>
         </Section>
-        <Text variant="caption">{address}</Text>
+        <Text variant="body">{address}</Text>
       </Info>
     </RestaurantCard>
   );
