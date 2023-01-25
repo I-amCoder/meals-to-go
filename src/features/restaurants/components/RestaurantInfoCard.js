@@ -16,6 +16,7 @@ import { Text } from "./typography/Text";
 
 const RestaurantInfoCard = ({ restaurant = {} }) => {
   // Basic Info
+
   const {
     name = "Some Restaurant",
     icon = "https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png",
@@ -27,16 +28,17 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
     rating = 5,
     isClosedTemporarily = true,
   } = restaurant;
+
   const ratings = Array.from(new Array(Math.floor(rating)));
 
   return (
     <RestaurantCard elevation={5}>
-      <RestaurantCardCover source={{ uri: photos[0] }} />
+      <RestaurantCardCover borderRadius={34} source={{ uri: photos[0] }} />
       <Info>
         <Text variant="label">{name}</Text>
         <Section>
           <Rating>
-            {ratings.map((item, index) => {
+            {ratings.map((i, index) => {
               return <SvgXml key={index} xml={star} width={20} height={20} />;
             })}
           </Rating>

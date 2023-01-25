@@ -8,6 +8,7 @@ export const RestaurantCard = styled(Card)`
 `;
 export const RestaurantCardCover = styled(Card.Cover)`
   padding: ${(props) => props.theme.space[3]};
+  border-radius: 0px;
   background-color: ${(props) => props.theme.colors.bg.primary};
 `;
 
