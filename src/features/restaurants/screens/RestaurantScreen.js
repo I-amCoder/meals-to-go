@@ -1,12 +1,14 @@
 import React from "react";
 import { Searchbar } from "react-native-paper";
 import Spacer from "../../../components/Spacer";
+import { restaurantsRequest } from "../../../services/restaurants/RestaurantService";
 
 import RestaurantInfoCard from "../components/RestaurantInfoCard";
+import { SafeArea } from "../components/SafeArea";
+
 import {
   ListContainer,
   RestaurantList,
-  SafeArea,
   SearchContainer,
 } from "./RestaurantScreen.style";
 const DATA = [

@@ -12,13 +12,32 @@ import { useFonts as UseLato, Lato_400Regular } from "@expo-google-fonts/lato";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Text } from "react-native";
+import { SafeArea } from "./src/features/restaurants/components/SafeArea";
 
 const Tab = createBottomTabNavigator();
 const Map = () => {
-  return <Text>Helo Map</Text>;
+  return (
+    <>
+      <SafeArea>
+        <Text>Helo Map</Text>
+      </SafeArea>
+    </>
+  );
 };
 const Settings = () => {
-  return <Text>Helo Settings</Text>;
+  return (
+    <>
+      <SafeArea>
+        <Text>Helo Settings</Text>
+      </SafeArea>
+    </>
+  );
+};
+
+const TAB_ICON = {
+  Restaurants: "restaurant",
+  Map: "map",
+  Settings: "settings",
 };
 
 export default function App() {
@@ -31,30 +50,23 @@ export default function App() {
   if (!latoLoaded || !oswaldLoaded) {
     return null;
   }
+
+  const createScreenOptions = ({ route }) => {
+    const iconName = TAB_ICON[route.name];
+    return {
+      tabBarIcon: ({ size, color }) => (
+        <Ionicons name={iconName} size={size} color={color} />
+      ),
+      tabBarActiveTintColor: "tomato",
+      tabBarInactiveTintColor: "gray",
+      headerShown: false,
+    };
+  };
   return (
     <>
       <ThemeProvider theme={theme}>
         <NavigationContainer>
-          <Tab.Navigator
-            screenOptions={({ route }) => ({
-              tabBarIcon: ({ focused, color, size }) => {
-                let iconName;
-
-                if (route.name === "Restaurants") {
-                  iconName = focused ? "restaurant" : "restaurant-outline";
-                } else if (route.name === "Map") {
-                  iconName = focused ? "map" : "map-outline";
-                } else if (route.name === "Settings") {
-                  iconName = focused ? "settings" : "settings-outline";
-                }
-
-                // You can return any component that you like here!
-                return <Ionicons name={iconName} size={size} color={color} />;
-              },
-              tabBarActiveTintColor: "tomato",
-              tabBarInactiveTintColor: "gray",
-            })}
-          >
+          <Tab.Navigator screenOptions={createScreenOptions}>
             <Tab.Screen name="Restaurants" component={RestaurantScreen} />
             <Tab.Screen name="Map" component={Map} />
             <Tab.Screen name="Settings" component={Settings} />
