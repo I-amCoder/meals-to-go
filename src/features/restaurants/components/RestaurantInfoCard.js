@@ -12,7 +12,7 @@ import {
   RestaurantCardCover,
   Section,
 } from "./RestaurantInfoCard.style";
-import { Text } from "./typography/Text";
+import { Text } from "../../../components/typography/Text";
 
 const RestaurantInfoCard = ({ restaurant = {} }) => {
   // Basic Info
