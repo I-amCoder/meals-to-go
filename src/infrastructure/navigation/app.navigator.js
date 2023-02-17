@@ -19,7 +19,7 @@ const Settings = () => {
   return (
     <>
       <SafeArea>
-        <Text>Helo Settings</Text>
+        <Text>Afzaal is here</Text>
       </SafeArea>
     </>
   );
